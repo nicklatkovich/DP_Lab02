@@ -25,7 +25,7 @@
         private void InitializeComponent( ) {
             this.Button_OpenFile = new System.Windows.Forms.Button();
             this.TextBox_InputText = new System.Windows.Forms.TextBox();
-            this.ListBox_Entropy = new System.Windows.Forms.ListBox();
+            this.ListBox_Probabilities = new System.Windows.Forms.ListBox();
             this.Label_Entropy = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -57,18 +57,18 @@
             this.TextBox_InputText.TabIndex = 1;
             this.TextBox_InputText.TextChanged += new System.EventHandler(this.TextBox_InputText_TextChanged);
             // 
-            // ListBox_Entropy
+            // ListBox_Probabilities
             // 
-            this.ListBox_Entropy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ListBox_Entropy.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ListBox_Entropy.ForeColor = System.Drawing.Color.Silver;
-            this.ListBox_Entropy.FormattingEnabled = true;
-            this.ListBox_Entropy.ItemHeight = 19;
-            this.ListBox_Entropy.Location = new System.Drawing.Point(357, 12);
-            this.ListBox_Entropy.Name = "ListBox_Entropy";
-            this.ListBox_Entropy.ScrollAlwaysVisible = true;
-            this.ListBox_Entropy.Size = new System.Drawing.Size(255, 365);
-            this.ListBox_Entropy.TabIndex = 2;
+            this.ListBox_Probabilities.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ListBox_Probabilities.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ListBox_Probabilities.ForeColor = System.Drawing.Color.Silver;
+            this.ListBox_Probabilities.FormattingEnabled = true;
+            this.ListBox_Probabilities.ItemHeight = 19;
+            this.ListBox_Probabilities.Location = new System.Drawing.Point(357, 12);
+            this.ListBox_Probabilities.Name = "ListBox_Probabilities";
+            this.ListBox_Probabilities.ScrollAlwaysVisible = true;
+            this.ListBox_Probabilities.Size = new System.Drawing.Size(255, 365);
+            this.ListBox_Probabilities.TabIndex = 2;
             // 
             // Label_Entropy
             // 
@@ -77,9 +77,9 @@
             this.Label_Entropy.ForeColor = System.Drawing.Color.Silver;
             this.Label_Entropy.Location = new System.Drawing.Point(131, 396);
             this.Label_Entropy.Name = "Label_Entropy";
-            this.Label_Entropy.Size = new System.Drawing.Size(136, 25);
+            this.Label_Entropy.Size = new System.Drawing.Size(110, 25);
             this.Label_Entropy.TabIndex = 3;
-            this.Label_Entropy.Text = "Entropy = {0}";
+            this.Label_Entropy.Text = "Entropy = ";
             // 
             // MainForm
             // 
@@ -88,7 +88,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(624, 441);
             this.Controls.Add(this.Label_Entropy);
-            this.Controls.Add(this.ListBox_Entropy);
+            this.Controls.Add(this.ListBox_Probabilities);
             this.Controls.Add(this.TextBox_InputText);
             this.Controls.Add(this.Button_OpenFile);
             this.Name = "MainForm";
@@ -104,7 +104,7 @@
 
         private System.Windows.Forms.Button Button_OpenFile;
         private System.Windows.Forms.TextBox TextBox_InputText;
-        private System.Windows.Forms.ListBox ListBox_Entropy;
+        private System.Windows.Forms.ListBox ListBox_Probabilities;
         private System.Windows.Forms.Label Label_Entropy;
     }
 }

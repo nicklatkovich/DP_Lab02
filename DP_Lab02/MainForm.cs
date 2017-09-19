@@ -12,9 +12,9 @@ namespace DP_Lab02 {
         private void Button_OpenFile_Click(object sender, EventArgs e) {
             OpenFileDialog ofd = new OpenFileDialog {
                 Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*",
-                RestoreDirectory = true
+                RestoreDirectory = true,
             };
-            if (ofd.ShowDialog() == DialogResult.OK) {
+            if (ofd.ShowDialog( ) == DialogResult.OK) {
                 try {
                     TextBox_InputText.Text = File.ReadAllText(ofd.FileName);
                 } catch {
@@ -24,7 +24,7 @@ namespace DP_Lab02 {
         }
 
         private void TextBox_InputText_TextChanged(object sender, EventArgs e) {
-            ListBox_Entropy.Items.Clear( );
+            ListBox_Probabilities.Items.Clear( );
             Dictionary<char, ulong> charDictionary = new Dictionary<char, ulong>( );
             ulong charsNumber = 0ul;
             foreach (char c in TextBox_InputText.Text) {
@@ -39,10 +39,16 @@ namespace DP_Lab02 {
                 }
             }
             double entropy = 0d;
+            List<Tuple<char, double>> listOfProbabilities = new List<Tuple<char, double>>( );
             foreach (KeyValuePair<char, ulong> pair in charDictionary) {
                 double probability = (double)pair.Value / charsNumber;
-                ListBox_Entropy.Items.Add(pair.Key + " - " + (probability * 100d).ToString(".0000") + "%");
+                listOfProbabilities.Add(new Tuple<char, double>(pair.Key, probability));
                 entropy += probability * Math.Log(probability, 2);
+            }
+            listOfProbabilities.Sort(new Comparison<Tuple<char, double>>(
+                (Tuple<char, double> tupple1, Tuple<char, double> tupple2) => tupple2.Item2.CompareTo(tupple1.Item2)));
+            foreach (Tuple<char, double> listItem in listOfProbabilities) {
+                ListBox_Probabilities.Items.Add(listItem.Item1 + " - " + (listItem.Item2 * 100d).ToString(".0000") + "%");
             }
             entropy = -entropy;
             Label_Entropy.Text = "Entropy = " + entropy.ToString( );
